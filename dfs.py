@@ -1,6 +1,6 @@
-# Depth-First Search algorithm implementation
-# Returns path length from start to end vertex
-# Raises ValueError if vertices are not in graph
+# Depth-First Search (DFS) algorithm implementation
+# Calculates path length between two vertices
+# Throws ValueError for invalid vertices
 def dfs_path_length(graph, start, end):
     # Validate input vertices
     if start not in graph or end not in graph:
