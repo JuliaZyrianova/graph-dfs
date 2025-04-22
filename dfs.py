@@ -1,16 +1,17 @@
-def dfs(graph, start):
+def dfs_path_length(graph, start, end):
     visited = []
-    stack = [start]
-
+    stack = [(start, 0)]
+    
     while stack:
-        vertex = stack.pop()
+        vertex, path_length = stack.pop()
+        if vertex == end:
+            return path_length
         if vertex not in visited:
             visited.append(vertex)
-            if vertex in graph:  # Check if vertex is in the graph
-                for neighbor in graph[vertex]:
-                    if neighbor not in visited:
-                        stack.append(neighbor)
-    return visited
+            for neighbor in graph[vertex]:
+                if neighbor not in visited:
+                    stack.append((neighbor, path_length + 1))
+    return -1  # Если путь не найден
 
 # Пример использования
 if __name__ == "__main__":
@@ -20,4 +21,4 @@ if __name__ == "__main__":
         3: [1],
         4: [2]
     }
-    print(dfs(graph, 1))  # Вывод: [1, 3]
+    print(dfs_path_length(graph, 2, 4))  # Вывод: 1
