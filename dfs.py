@@ -2,9 +2,9 @@
 # Calculates path length between two vertices
 # Throws ValueError for invalid vertices
 def dfs_path_length(graph, start, end):
-    # Validate input vertices
+    # Проверка наличия вершин в графе
     if start not in graph or end not in graph:
-        raise ValueError("Start or end vertex not in graph")
+        raise ValueError("Вершины не найдены в графе")
     
     visited = []  # Tracks visited vertices
     stack = [(start, 0)]  # Stack with tuples (vertex, current_path_length)
